@@ -2242,6 +2242,8 @@
 				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
+
+
 		
 	    <BlockGenus name="setter_variable_String" kind="command" color="245 245 245" initlabel="bg.setter_variable_String">
 	      <description>
@@ -2567,6 +2569,7 @@
 			</BlockConnectors>
 		</BlockGenus>
 
+
 		<BlockGenus name="message" kind="data" color="245 245 245" initlabel="bg.message" editable-label="yes">
 			<description>
 				<text>string message</text>
@@ -2604,6 +2607,59 @@
 			<BlockConnectors>
 				<BlockConnector connector-type="string" connector-kind="plug" />
 				<BlockConnector connector-type="poly" connector-kind="socket" />
+			</BlockConnectors>
+		</BlockGenus>
+
+		<!-- keyboard stuff -->
+		<BlockGenus name="keyboard_print" kind="command" color="245 245 245" initlabel="bg.keyboard_print">
+			<description>
+				<text>send message via keyboard</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="string" connector-kind="socket" label="bc.message">
+					<DefaultArg genus-name="message" label="message" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="keyboard_press" kind="command" color="245 245 245" initlabel="bg.keyboard_press">
+			<description>
+				<text>press down a keyboard key</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="poly" connector-kind="socket" label="==">
+					<DefaultArg genus-name="key" label="A" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="keyboard_release" kind="command" color="245 245 245" initlabel="bg.keyboard_release">
+			<description>
+				<text>release (unpress) a keyboard key</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="poly" connector-kind="socket" label="==">
+					<DefaultArg genus-name="key" label="A" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="keyboard_release_all" kind="command" color="245 245 245" initlabel="bg.keyboard_release_all">
+			<description>
+				<text>release (unpress) all keyboard keys</text>
+			</description>
+			<BlockConnectors>
+			</BlockConnectors>
+		</BlockGenus>
+
+		<BlockGenus name="key" kind="data" color="102 255 51" initlabel="bg.key" editable-label="yes">
+			<description>
+				<text>
+					key
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -11848,6 +11904,11 @@
 				<BlockGenusMember>serial_available2</BlockGenusMember>
 				<BlockGenusMember>serial_read</BlockGenusMember>
 				<BlockGenusMember>serial_parseInt</BlockGenusMember>
+				<BlockGenusMember>keyboard_print</BlockGenusMember>
+				<BlockGenusMember>keyboard_press</BlockGenusMember>
+				<BlockGenusMember>keyboard_release</BlockGenusMember>
+				<BlockGenusMember>keyboard_release_all</BlockGenusMember>
+				<BlockGenusMember>key</BlockGenusMember>
 				<!-- <BlockGenusMember>DuinoEDU_Guino_Read</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_Guino_Slider</BlockGenusMember>
 				<BlockGenusMember>DuinoEDU_Guino_switch</BlockGenusMember>
@@ -11862,6 +11923,13 @@
 				<BlockGenusMember>Serialplus_receive_number</BlockGenusMember>
 				<BlockGenusMember>Serialplus_receive_digital</BlockGenusMember> -->
 			</BlockDrawer>
+			<!--<BlockDrawer button-color="127 255 127" name="bd.keyboard" type="factory">
+
+				<BlockGenusMember>keyboard_print</BlockGenusMember>
+				<BlockGenusMember>keyboard_press</BlockGenusMember>
+				<BlockGenusMember>keyboard_release</BlockGenusMember>
+				<BlockGenusMember>keyboard_release_all</BlockGenusMember>
+			</BlockDrawer>-->
 			<!-- <BlockDrawer button-color="26 97 218" name="bd.scoop">
 			    <BlockGenusMember>scoop_task</BlockGenusMember>
 				<BlockGenusMember>scoop_loop</BlockGenusMember>
